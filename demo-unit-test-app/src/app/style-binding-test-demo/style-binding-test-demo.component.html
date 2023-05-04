@@ -1,0 +1,13 @@
+<h1 [ngStyle]="{'color': age > 18 ? 'red' : 'blue'}" id="ternaryIdCheck"> Hai this is my one style binding</h1>
+
+<h1 [ngStyle]="{'font-size': dynamicFontSize}" id="dynamicCheck">Dynamic property binding type of ng style</h1>
+
+<h1 [ngStyle]="getStyles()" id="styleMethodCheck"></h1>
+
+<h1 [style.font-size]="dynamicFontSizeWithUnits" id="valueWithUnits">Style default binding</h1>
+<h1 [style.font-size.px]="dynamicFontSizeWithoutUnits">Style default binding</h1>
+<h1 [style.font-size.rem]="dynamicFontSizeWithoutUnits" id="valueWithOutUnits">Style default binding</h1>
+
+<h1 [style.color]="'blue'" style="color:red" id="priorityCheck">Check the comparision</h1>
+
+ 

@@ -1,0 +1,43 @@
+<div *ngIf="age > 18" id="ageGreaterThan"> 
+    Age is greater than 18 
+</div>
+
+<div *ngIf="age <= 18" id="simpleIfFailed"> 
+    Age is lesser than 18 
+</div>
+
+*******************************************
+<div *ngIf="age > 18; then conditionTrue; else conditionFalse"  ></div>
+
+<ng-template #conditionTrue>
+    <h1 id="thenClause">Age is greater than 18 inside the ng template</h1>
+</ng-template>
+
+<ng-template #conditionFalse>
+    <h1 id="elseClause">Age is less than 18 inside the ng template</h1>
+</ng-template>
+
+*******************************************
+<ng-template [ngIf]="age > 18" [ngIfElse]="conditionFalsePropertybinding">
+    <h5 id="templateThenClause">Ng template as property binding</h5> 
+</ng-template>
+
+<ng-template #conditionFalsePropertybinding>
+    <h5  id="templateElseClause">Ng template as property binding in else condition</h5>
+</ng-template>
+
+*******************************************
+
+<div *ngIf="true">
+    <h5>Display on true</h5>
+</div>
+
+*******************************************
+<div *ngIf="getdateFromTS()" id="contollerMethod">
+    <h5>Using as method condition</h5>
+</div>
+
+
+*******************************************
+<div [hidden] ="age >18" id="hiddenProperty"> Hiddend property check </div>
+

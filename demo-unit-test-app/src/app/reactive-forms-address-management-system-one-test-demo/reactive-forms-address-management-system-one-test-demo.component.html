@@ -1,0 +1,60 @@
+<div style="display: flex;justify-content: center;margin-top: 20px;">
+    <form [formGroup]="registerAddress" (ngSubmit)="submit()">
+        <div class="m-t-10">
+            <input placeholder="Enter Name" name="name" formControlName="name" />
+
+            <div *ngIf="isFieldValid(registerAddress, 'name')">
+                <p class="error" *ngIf="getFieldErrorByType(registerAddress, 'name', 'required')">This is required</p>
+                <p class="error" *ngIf="getFieldErrorByType(registerAddress, 'name', 'minlength')">Please enter minimum of 5 characters</p>
+            </div>
+        </div>
+        <div class="m-t-10">
+            <input placeholder="Enter Email" name="Email" formControlName="email" id="emailID"/>
+            <div *ngIf="isFieldValid(registerAddress, 'email')">
+                <p class="error" *ngIf="getFieldErrorByType(registerAddress, 'email', 'required')" id="emailRequired">This is required</p>
+                <p class="error" *ngIf="getFieldErrorByType(registerAddress, 'email', 'pattern')">Please enter valid email</p>
+            </div>
+        </div>
+        <div class="m-t-10" formArrayName="addresses">
+            <div style="display: flex;justify-content: end;">
+                <button type="button" (click)="addAddress()" id="addAddressId">Add Address</button>
+            </div>
+            <ng-container *ngIf="addressesAsFormArray.controls.length <= 0">
+                <p style="color: orange">No Addresses found</p>
+            </ng-container>
+            <ng-container *ngFor="let control of addressesAsFormArray.controls;let i = index">
+                <p>Address Details - {{control.get('id')?.value}}</p>
+                <div style="display: flex;justify-content: end;">
+                    <button type="button" (click)="removeAddress(i)" id="remove_address_{{i}}">Remove Address - {{control.get('id')?.value}}</button>
+                </div>
+                <div [formGroupName]="i">
+                    <div class="m-t-10">
+                        <input placeholder="Enter City Name" name="cityname" formControlName="cityName" />
+                        <div *ngIf="isFieldValid(control, 'cityName')">
+                            <p class="error" *ngIf="getFieldErrorByType(control, 'cityName', 'required')">This is required</p>
+                        </div>
+                    </div>
+                    <div class="m-t-10">
+                        <input placeholder="Enter State Name" name="stateName" formControlName="stateName" />
+                        <div *ngIf="isFieldValid(control, 'stateName')">
+                            <p class="error" *ngIf="getFieldErrorByType(control, 'stateName', 'required')">This is required</p>
+                        </div>
+                    </div>
+                    <div class="m-t-10">
+                        <input placeholder="Enter Street Name" name="streetName" formControlName="streetName" />
+                        <div *ngIf="isFieldValid(control, 'streetName')">
+                            <p class="error" *ngIf="getFieldErrorByType(control, 'streetName', 'required')">This is required</p>
+                        </div>
+                    </div>
+                    <div class="m-t-10">
+                        <input placeholder="Enter Landmark" name="Landmark" formControlName="landmark" />
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div style="display: flex;justify-content: end;" class="m-t-10">
+            <button type="submit" [disabled]="registerAddress.invalid" id="submitID">Submit</button>
+        </div>
+
+    </form>
+</div>

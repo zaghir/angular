@@ -1,0 +1,77 @@
+<div ngSwitch="mobiles" id="switchStatic">
+    <div *ngSwitchCase="'mobiles'">
+        <p>Mobiles</p>
+    </div>
+    <div *ngSwitchCase="'cloths'">
+        <p>Cloths</p>
+    </div>
+    <div *ngSwitchCase="'choclates'">
+        <p>Choclates</p>
+    </div>
+    <div *ngSwitchDefault>
+        <p>Computers</p>
+    </div>
+</div>
+
+*****************************************
+Dynamic centent change 
+<div [ngSwitch]="productType" id="dynamicSwitch">
+    <div *ngSwitchCase="'mobiles'">
+        <p>Mobiles</p>
+    </div>
+    <div *ngSwitchCase="'cloths'">
+        <p>Cloths</p>
+    </div>
+    <div *ngSwitchCase="'choclates'">
+        <p>Choclates</p>
+    </div>
+    <div *ngSwitchDefault>
+        <p>Computers</p>
+    </div>
+</div>
+
+<br/>
+<button (click)="changeToChoclates()" id="buttonChange"> Change to choclates</button>
+<br/>
+
+**************Dynamic value by using a method from controller *******
+
+<div [ngSwitch]="getProductType()" id="swithcWithMethod" >
+    <div *ngSwitchCase="'mobiles'">
+        <p>Mobiles</p>
+    </div>
+    <div *ngSwitchCase="'cloths'">
+        <p>Cloths</p>
+    </div>
+    <div *ngSwitchCase="'choclates'">
+        <p>Choclates</p>
+    </div>
+    <div *ngSwitchDefault>
+        <p>Computers</p>
+    </div>
+</div>
+
+<br/>
+<button (click)="changeToChoclates()"> Change ti choclates</button>
+
+<br/>
+****************************** ng container *********************
+<ng-container [ngSwitch]="getProductType()">
+    <ng-container *ngSwitchCase="'mobiles'">
+        <p id="mobileCase">Mobiles</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="'cloths'">
+        <p id="clothCase">Cloths</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="'choclates'">
+        <p id="choclateCase">Choclates</p>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <p id="defaultCase">Computers</p>
+    </ng-container>
+</ng-container>
+
+<br/>
+<button (click)="changeToChoclates()"> Change ti choclates</button>
+
+<br/>

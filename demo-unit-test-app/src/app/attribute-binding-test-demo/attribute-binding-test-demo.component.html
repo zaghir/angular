@@ -1,0 +1,32 @@
+<button [attr.aria-label]="ariaLabelDynamic" id ="buttonAttr">Check</button>
+
+<input value ="sample" [attr.data-widget] ="widgetDynamic" id="customAttr"/>
+<input [value] ="inputPropertyValue" id="propertyNotAttr"/>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Sai</td>
+            <td>10$</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Kumar</td>
+            <td [attr.rowspan]="rowSpanCount" id ="rowspancheck">20$</td>
+            <!-- <td [rowSpan]="rowSpanCount" id ="rowspancheck">20$</td> -->
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>SKK</td>
+            
+        </tr>
+    </tbody>
+</table>

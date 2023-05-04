@@ -1,0 +1,30 @@
+<ng-container *ngTemplateOutlet="reusable;context: {$implicit: 'inbuilt value' ,name: '1st container' ,id:'implicitContainerId'}"></ng-container>
+
+<h4>Something here </h4>
+
+<!-- <h1 class="color-red">how are you</h1> -->
+<ng-container *ngTemplateOutlet="reusable;context: {name: 'how are you' , id:'withoutImpliciti'}" ></ng-container>
+
+<div style="width: 100px; height: 100px; border: 1px solid black;" id="divElement">
+    <!-- <h1>Some external data</h1> -->
+    <ng-container *ngTemplateOutlet="reusable;context: {name: 'Some external data'}"></ng-container>
+</div>
+
+<p>*************** dynamic value from controller **** </p>
+
+<div id="dynamicID">
+    <ng-container *ngTemplateOutlet="reusable; context: objContext"></ng-container>
+</div>
+
+<p>******  Dynamic value without container  ******</p>
+
+<div id="dynamicIDTemplate"> 
+    <ng-template [ngTemplateOutlet] ="reusable" [ngTemplateOutletContext]="objContext"></ng-template>
+</div>
+
+
+
+<ng-template #reusable let-name="name"  let-builtValue let-uniqueID="id" >
+    <p id="{{'paraID' +'_' +uniqueID}}">{{builtValue}}</p>
+    <h1 class="color-red" id="{{'headingId'+'_'+uniqueID}}">{{name}}</h1>
+</ng-template>

@@ -1,0 +1,16 @@
+<div>
+    <h1 [ngClass]="headingColor" id="headColor" >
+        Something heading
+    </h1>
+    <h1 [ngClass]="age > 18 ?'font-red' : 'font-blue'" id ="ternary">Age is in red color if age is greater than 18 else show blue color</h1>
+
+    <h1 [ngClass]="{'font-red': age > 18}" id="objectTest">Property as ng class</h1>
+
+    <h1 [ngClass]="[age > 18 ? 'font-red':'font-blue', age > 18 ? 'font-large': 'font-small' ]" id="arrayFormat">heading as array ng class</h1>
+
+    <h1 [ngClass]="age > 18 ? 'font-large' : ''" class="font-small">Ng class based on class</h1>
+
+    <h1 [class.font-red]="age > 18" id="propertyBinding">This is a class type of binding without ng class</h1>
+
+</div>
+  
